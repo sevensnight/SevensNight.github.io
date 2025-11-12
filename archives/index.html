@@ -56,7 +56,7 @@
 					scale: 0.9
 				},
 			
-			pangu: "false",
+			pangu: "true",
 			
 				lazyload: {
 					threshold: 800,
@@ -149,6 +149,79 @@
 	
 <meta name="generator" content="Hexo 8.0.0"></head>
 
+<!--鼠标悬停3D效果start-->
+<!--1.定义对象属性-->
+<div class="article.post:not(.post-full)" data-tilt></div>
+<div class=".shuoshuo-preview-container" data-tilt></div>
+<!--2.JS脚本-->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/huangwb8/bloghelper@latest/js/mobile-detect.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/huangwb8/bloghelper@latest/vanilla3D/vanilla-tilt.js"></script>
+<!--3.动作-->
+<script type="text/javascript">
+    // 设备检测。依赖前述mobile-detect项目。
+    var md = new MobileDetect(window.navigator.userAgent);
+
+    // PC生效，手机/平板不生效
+    // md.mobile(); md.phone();
+    if(!md.phone() && !md.tablet()){
+        window.pjaxLoaded = function(){
+            // 正文卡片
+            VanillaTilt.init(document.querySelectorAll("article.post:not(.post-full)"),{
+                reverse:false,  // 是否反转倾斜方向
+                max:2,     // 最大的倾斜角度(度)
+                startX:0,      // X轴上的起始倾斜，单位为度。
+                startY:0,      // Y轴上的起始倾斜，单位为度。
+                perspective:1000,   // 转换角度，越低倾斜越极端
+                scale:1.02,      // 缩放比例,2 = 200%, 1.5 = 150%, 等等..
+                speed:300,    // 进入/退出 过渡的速度
+                transition:true,   // 是否在进入/退出的时候设置过渡效果
+                axis:"y",   // 设置禁用哪个轴的反转,值为"x"或者"y"或者null
+                reset:true,   // 设置在退出时清除倾斜效果
+                easing:"cubic-bezier(.03,.98,.52,.99)",    // 设置进入退出时过渡的贝塞尔曲线
+                glare:true,// 设置是否拥有炫光效果,即透明度渐变效果
+                "max-glare":0.7,      // 设置最大的透明效果,1=100%,0.5=50%
+                "glare-prerender":false,  // false, VanillaTilt为你创建透明炫光元素,否则你需要自己在.jstilt-glare>.js-tilt-glare-inner中自己添加render函数
+                "mouse-event-element":null,   // css选择器或者链接到HTML的元素,他将监听该元素上的鼠标事件
+                "full-page-listening":false,  // 是否监听整个页面的鼠标移动事件,若为true,他将监听这个页面,而非选中元素
+                gyroscope:false,   // 是否开启陀螺仪的方向检测
+                gyroscopeMinAngleX: 0,  //陀螺仪最小角度X
+                gyroscopeMaxAngleX: 0,  //陀螺仪最大角度X
+                gyroscopeMinAngleY: 0,  //陀螺仪最小角度
+                gyroscopeMaxAngleY: 0,  //陀螺仪最大角度
+                gyroscopeSamples: 10  //陀螺仪样品
+            })
+
+            // 说说卡片
+            VanillaTilt.init(document.querySelectorAll(".shuoshuo-preview-container"),{
+                reverse:false,  // 是否反转倾斜方向
+                max:2,     // 最大的倾斜角度(度)
+                startX:0,      // X轴上的起始倾斜，单位为度。
+                startY:0,      // Y轴上的起始倾斜，单位为度。
+                perspective:1000,   // 转换角度，越低倾斜越极端
+                scale:1.02,      // 缩放比例,2 = 200%, 1.5 = 150%, 等等..
+                speed:300,    // 进入/退出 过渡的速度
+                transition:true,   // 是否在进入/退出的时候设置过渡效果
+                axis:"y",   // 设置禁用哪个轴的反转,值为"x"或者"y"或者null
+                reset:true,   // 设置在退出时清除倾斜效果
+                easing:"cubic-bezier(.03,.98,.52,.99)",    // 设置进入退出时过渡的贝塞尔曲线
+                glare:true,// 设置是否拥有炫光效果,即透明度渐变效果
+                "max-glare":0.7,      // 设置最大的透明效果,1=100%,0.5=50%
+                "glare-prerender":false,  // false, VanillaTilt为你创建透明炫光元素,否则你需要自己在.jstilt-glare>.js-tilt-glare-inner中自己添加render函数
+                "mouse-event-element":null,   // css选择器或者链接到HTML的元素,他将监听该元素上的鼠标事件
+                "full-page-listening":false,  // 是否监听整个页面的鼠标移动事件,若为true,他将监听这个页面,而非选中元素
+                gyroscope:false,   // 是否开启陀螺仪的方向检测
+                gyroscopeMinAngleX: 0,  //陀螺仪最小角度X
+                gyroscopeMaxAngleX: 0,  //陀螺仪最大角度X
+                gyroscopeMinAngleY: 0,  //陀螺仪最小角度
+                gyroscopeMaxAngleY: 0,  //陀螺仪最大角度
+                gyroscopeSamples: 10  //陀螺仪样品
+            })
+        }
+        $(window.pjaxLoaded);
+        $(document).on('pjax:end', window.pjaxLoaded);
+    }
+</script>
+<!--鼠标悬停3D效果end-->
 
 
 <style id="themecolor_css">
@@ -285,9 +358,9 @@
 	
 	<div id="banner_container" class="banner-container container text-center">
 		
-			<div class="banner-title text-white"><span class="banner-title-inner">Hexo</span>
+			<div class="banner-title text-white" data-text="柒柒七夜‘s blog" data-interval=""><span class="banner-title-inner">&nbsp;</span>
 		
-		</div>
+		<span class="banner-subtitle d-block">篱落浮暗香，竹榻摊书伴虫鸣.</span></div>
 	</div>
 	
 		<style>
@@ -313,7 +386,7 @@
 			background-position: center;
 			background-size: cover;
 			background-repeat: no-repeat;
-			opacity: 1;
+			opacity: 0.9;
 			transition: opacity .5s ease;
 		}
 		html.darkmode #content:before{
@@ -337,7 +410,7 @@
 				transition: opacity .5s ease;
 			}
 			html.darkmode #content:after {
-				opacity: 1;
+				opacity: 0.9;
 			}
 			html.darkmode #content:before {
 				opacity: 0;
@@ -441,14 +514,16 @@
 		
 		<div id="leftbar_part1" class="widget widget_search card bg-white shadow-sm border-0">
 			<div class="leftbar-banner card-body">
-				<span class="leftbar-banner-title text-white">Hexo</span>
+				<span class="leftbar-banner-title text-white">柒柒的公告栏</span>
 				
+				
+					<span class="leftbar-banner-subtitle text-white">雨细如丝织，风轻似梦扬</span>
 				
 			</div>
 			
 			
 				<ul id='leftbar_part1_menu' class='leftbar-menu'>
-					<li class='leftbar-menu-item'><a href='/'>首页</a></li><li class='leftbar-menu-item current'><a href='/archives'>归档</a></li><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>二级菜单</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item leftbar-menu-item-haschildren'><a no-pjax onclick='return false;'>三级菜单</a><ul class='leftbar-menu-item leftbar-menu-subitem shadow-sm'><li class='leftbar-menu-item'><a href='/'>首页</a></li></ul></li></ul></li>
+					<li class='leftbar-menu-item'><a href='/'><i class="fa fa-home"></i> 首页</a></li><li class='leftbar-menu-item current'><a href='/archives'><i class="fa fa-clock-o" aria-hidden="true"></i> 归档</a></li>
 				</ul>
 			
 			<div class="card-body text-center leftbar-search-button">
@@ -498,15 +573,11 @@
 									<div class="site-author-links">
 										
 											<div class='site-author-links-item'>
-												<a href="/" rel='noopener' target='_blank'>aaa</a>
+												<a href="http://sevensnight.xyz/" rel='noopener' target='_blank'><i class="fa fa-paw" aria-hidden="true"></i> SN独立站</a>
 											</div>
 										
 											<div class='site-author-links-item'>
-												<a href="/" rel='noopener' target='_blank'>bbb</a>
-											</div>
-										
-											<div class='site-author-links-item'>
-												<a href="/" rel='noopener' target='_blank'>ccc</a>
+												<a href="https://www.cnblogs.com/SevensNight" rel='noopener' target='_blank'><i class="fa fa-graduation-cap"></i> 博客园</a>
 											</div>
 										
 									</div>
@@ -515,18 +586,6 @@
 									<div class='site-friend-links'>
 										<div class='site-friend-links-title'><i class='fa fa-fw fa-link'></i> Links</div>
 										<ul class='site-friend-links-ul'>
-											
-												<li class='site-friend-links-item'>
-													<a href='/' rel='noopener' target='_blank'>aaa</a>
-												</li>
-											
-												<li class='site-friend-links-item'>
-													<a href='/' rel='noopener' target='_blank'>bbb</a>
-												</li>
-											
-												<li class='site-friend-links-item'>
-													<a href='/' rel='noopener' target='_blank'>ccc</a>
-												</li>
 											
 										</ul>
 									</div>
@@ -603,7 +662,164 @@
 		
 
 					<footer id="footer" class="site-footer card shadow-sm border-0">
-						
+						<style>
+ /* 核心样式 */
+ .github-badge {
+ display: inline-block;
+ border-radius: 4px;
+ text-shadow: none;
+ font-size: 13.1px;
+ color: #fff;
+ line-height: 15px;
+ margin-bottom: 5px;
+ font-family: "Open Sans", sans-serif;
+ }
+ .github-badge .badge-subject {
+ display: inline-block;
+ background-color: #4d4d4d;
+ padding: 4px 4px 4px 6px;
+ border-top-left-radius: 4px;
+ border-bottom-left-radius: 4px;
+ font-family: "Open Sans", sans-serif;
+ }
+ .github-badge .badge-value {
+ display: inline-block;
+ padding: 4px 6px 4px 4px;
+ border-top-right-radius: 4px;
+ border-bottom-right-radius: 4px;
+ font-family: "Open Sans", sans-serif;
+ }
+ .github-badge-big {
+ display: inline-block;
+ border-radius: 6px;
+ text-shadow: none;
+ font-size: 14.1px;
+ color: #fff;
+ line-height: 18px;
+ margin-bottom: 7px;
+ }
+ .github-badge-big .badge-subject {
+ display: inline-block;
+ background-color: #4d4d4d;
+ padding: 4px 4px 4px 6px;
+ border-top-left-radius: 4px;
+ border-bottom-left-radius: 4px;
+ }
+ .github-badge-big .badge-value {
+ display: inline-block;
+ padding: 4px 6px 4px 4px;
+ border-top-right-radius: 4px;
+ border-bottom-right-radius: 4px;
+ }
+ .bg-orange {
+ background-color: #ec8a64 !important;
+ }
+ .bg-red {
+ background-color: #cb7574 !important;
+ }
+ .bg-apricots {
+ background-color: #f7c280 !important;
+ }
+ .bg-casein {
+ background-color: #dfe291 !important;
+ }
+ .bg-shallots {
+ background-color: #97c3c6 !important;
+ }
+ .bg-ogling {
+ background-color: #95c7e0 !important;
+ }
+ .bg-haze {
+ background-color: #9aaec7 !important;
+ }
+ .bg-mountain-terrier {
+ background-color: #99a5cd !important;
+ }
+</style>
+<!-- 
+<div class="github-badge-big">
+ <span class="badge-subject"><i class="fa fa-id-card"></i> 备案号 </span 
+ ><span class="badge-value bg-orange"> 
+  <a href="https://beian.miit.gov.cn/" target="_blank" one-link-mark="yes" 
+  >苏ICP备0000000000号</a 
+  >
+  |
+  <a 
+  href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode= 32072202010255" 
+  target="_blank" 
+  one-link-mark="yes" 
+  >苏公网安备 00000000000000号</a 
+  ></span 
+ >
+</div>
+-->
+<!-- 
+<div class="github-badge-big">
+        <span class="badge-subject"><i class="fa fa-cloud" aria-hidden="true"></i> CDN</span>
+        <span class="badge-value bg-shallots">
+            <a href="https://www.upyun.com/" target="_blank" one-link-mark="yes">Upyun</a>
+        </span>
+<span class="badge-subject"><i class="fa fa-wordpress"></i> Powered</span 
+><span class="badge-value bg-green" 
+><a href="https://cn.wordpress.org/" target="_blank" one-link-mark="yes" 
+>WordPress</a 
+></span 
+>
+</div>
+-->
+<div class="github-badge-big">
+<span class="badge-subject">Copyright </span 
+><span class="badge-value bg-red">
+ 2024-2025
+ <i class="fa fa-copyright"></i> SevensNight</span 
+>
+</div>
+<div class="github-badge-big">
+<span class="badge-subject"><i class="fa fa-clock-o"></i> Running Time</span 
+><span class="badge-value bg-apricots" 
+><span id="blog_running_days" class="odometer odometer-auto-theme"></span> 
+days 
+<span id="blog_running_hours" class="odometer odometer-auto-theme"></span> H 
+<span id="blog_running_mins" class="odometer odometer-auto-theme"></span> M 
+<span id="blog_running_secs" class="odometer odometer-auto-theme"></span>
+S</span 
+>
+ <script no-pjax="">
+var blog_running_days = document.getElementById("blog_running_days");
+var blog_running_hours = document.getElementById("blog_running_hours");
+var blog_running_mins = document.getElementById("blog_running_mins");
+var blog_running_secs = document.getElementById("blog_running_secs");
+function refresh_blog_running_time() {
+var time = new Date() - new Date(2020, 0,0, 0, 0, 0);
+var d = parseInt(time / 24 / 60 / 60 / 1000);
+var h = parseInt((time % (24 * 60 * 60 * 1000)) / 60 / 60 / 1000);
+var m = parseInt((time % (60 * 60 * 1000)) / 60 / 1000);
+var s = parseInt((time % (60 * 1000)) / 1000);
+blog_running_days.innerHTML = d;
+blog_running_hours.innerHTML = h;
+blog_running_mins.innerHTML = m;
+blog_running_secs.innerHTML = s;
+}
+refresh_blog_running_time();
+if (typeof bottomTimeIntervalHasSet == "undefined") {
+var bottomTimeIntervalHasSet = true;
+setInterval(function () {
+ refresh_blog_running_time();
+}, 500);
+}
+</script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+
+<!--主题搞笑字符-->
+<script>
+$.getScript("https://cdn.jsdelivr.net/gh/huangwb8/bloghelper@latest/js/onfocus.js");
+</script>
+
+<div class=""><span class="my-face">(」・ω・)」うー！(／・ω・)／にゃー！</span></div>
+
 						<div>Theme <a target="_blank" rel="noopener" href="https://github.com/solstice23/hexo-theme-argon"><strong>Argon</strong></a> | Powered by Hexo</div>
 						<span id="busuanzi_container_site_uv">
 							本站访客数 <span id="busuanzi_value_site_uv"></span> 人次
