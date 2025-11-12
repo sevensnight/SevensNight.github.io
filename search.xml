@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>test</title>
+      <link href="/2025/11/12/test-%E6%A0%BC%E5%BC%8F%E6%B5%8B%E8%AF%95/"/>
+      <url>/2025/11/12/test-%E6%A0%BC%E5%BC%8F%E6%B5%8B%E8%AF%95/</url>
+      
+        <content type="html"><![CDATA[<p># 一级标题</p><p>## 二级标题</p><p>### 三级标题</p><p>#### 四级标题</p><p>##### 五级标题</p><p>###### 六级标题</p><p>**粗体文本**</p><p>*斜体文本*</p><p>***粗斜体文本***</p><p><del>删除线</del></p><p><u>下划线</u></p><p>&#x3D;&#x3D;高亮文本&#x3D;&#x3D;</p><ul><li>项目1</li></ul><p>- 项目2</p><p>&nbsp; - 子项目2.1</p><p>&nbsp; - 子项目2.2</p><ol><li>第一步</li></ol><p>2. 第二步</p><p>&nbsp;  1. 子步骤2.1</p><p>&nbsp;  2. 子步骤2.2</p><ul><li>[x] 已完成任务</li></ul><p>- [ ] 未完成任务</p><p>- [ ] 待办任务</p><p>[链接文本](<a href="https://example.com/">https://example.com</a>)</p><p>[带标题的链接](<a href="https://example.com/">https://example.com</a> “链接标题”)</p><p><a href="https://example.com/">https://example.com</a>  <!-- 自动链接 --></p><p>![图片描述](<a href="https://picsum.photos/200/300">https://picsum.photos/200/300</a>)</p><p>![带标题的图片](<a href="https://picsum.photos/200/300">https://picsum.photos/200/300</a> “图片标题”)</p><blockquote><p>这是一级引用</p></blockquote><blockquote><blockquote><p>这是二级引用</p></blockquote></blockquote><blockquote><blockquote><blockquote><p>这是三级引用</p></blockquote></blockquote></blockquote><p><code>console.log(&quot;Hello World&quot;);</code> 是JavaScript的打印语句</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">greet</span>(<span class="params"></span>) &#123;</span><br><span class="line"></span><br><span class="line">&amp;nbsp; <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Hello, Markdown!&quot;</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>function greet() {</p><p>&nbsp; console.log(“Hello, Markdown!”);</p><p>}</p><p>| 表头1 | 表头2 | 表头3 |</p><p>| — | :—: | —: |</p><p>| 左对齐 | 居中对齐 | 右对齐 |</p><p>| 内容1 | 内容2 | 内容3 |</p><hr><p>***</p><p>___</p><p>这里有一个脚注引用[^1]</p><p>[^1]: 这是脚注的内容</p><p>$$</p><p>E &#x3D; mc^2</p><p>$$</p><p>行内公式：$a^2 + b^2 &#x3D; c^2$</p><p>术语1</p><p>: 术语1的定义</p><p>术语2</p><p>: 术语2的第一个定义</p><p>: 术语2的第二个定义</p><p><a href="mailto:&#101;&#120;&#97;&#109;&#x70;&#108;&#101;&#64;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#109;">example@example.com</a></p><p><a href="https://example.com/">https://example.com</a></p><p>:smile: :thumbsup: :heart: :fire:</p><p>[TOC]</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> test </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
       <link href="/2025/11/12/test5/"/>
       <url>/2025/11/12/test5/</url>
