@@ -159,7 +159,7 @@ button#leftbar_search_container {
 /*白天卡片背景透明*/
 .card{
     background-color:rgba(255, 255, 255, 0.8) !important;
-    backdrop-filter:blur(6px);/*毛玻璃效果主要属性*/
+    /*backdrop-filter:blur(6px);*//*毛玻璃效果主要属性*/
     -webkit-backdrop-filter:blur(6px);
 }
  
@@ -401,43 +401,260 @@ a, .btn-neutral {
 
 /* 添加颜文字动画效果 */
 .my-face {
-    display: inline-block;
-    animation: bounce 2s infinite;
-    font-size: 1.2rem;
+  -webkit-animation: my-face 5s infinite ease-in-out;
+          animation: my-face 5s infinite ease-in-out;
+  display: inline-block;
+  margin: 0 5px;
 }
 
-/* 定义弹跳动画 */
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-10px);
-    }
-    60% {
-        transform: translateY(-5px);
-    }
+@-webkit-keyframes my-face {
+  2%,
+  24%,
+  80% {
+    -webkit-transform: translate(0, 1.5px) rotate(1.5deg);
+            transform: translate(0, 1.5px) rotate(1.5deg);
+  }
+  4%,
+  68%,
+  98% {
+    -webkit-transform: translate(0, -1.5px) rotate(-0.5deg);
+            transform: translate(0, -1.5px) rotate(-0.5deg);
+  }
+  38%,
+  6% {
+    -webkit-transform: translate(0, 1.5px) rotate(-1.5deg);
+            transform: translate(0, 1.5px) rotate(-1.5deg);
+  }
+  8%,
+  86% {
+    -webkit-transform: translate(0, -1.5px) rotate(-1.5deg);
+            transform: translate(0, -1.5px) rotate(-1.5deg);
+  }
+  10%,
+  72% {
+    -webkit-transform: translate(0, 2.5px) rotate(1.5deg);
+            transform: translate(0, 2.5px) rotate(1.5deg);
+  }
+  12%,
+  64%,
+  78%,
+  96% {
+    -webkit-transform: translate(0, -0.5px) rotate(1.5deg);
+            transform: translate(0, -0.5px) rotate(1.5deg);
+  }
+  14%,
+  54% {
+    -webkit-transform: translate(0, -1.5px) rotate(1.5deg);
+            transform: translate(0, -1.5px) rotate(1.5deg);
+  }
+  16% {
+    -webkit-transform: translate(0, -0.5px) rotate(-1.5deg);
+            transform: translate(0, -0.5px) rotate(-1.5deg);
+  }
+  18%,
+  22% {
+    -webkit-transform: translate(0, 0.5px) rotate(-1.5deg);
+            transform: translate(0, 0.5px) rotate(-1.5deg);
+  }
+  20%,
+  36%,
+  46% {
+    -webkit-transform: translate(0, -1.5px) rotate(2.5deg);
+            transform: translate(0, -1.5px) rotate(2.5deg);
+  }
+  26%,
+  50% {
+    -webkit-transform: translate(0, 0.5px) rotate(0.5deg);
+            transform: translate(0, 0.5px) rotate(0.5deg);
+  }
+  28% {
+    -webkit-transform: translate(0, 0.5px) rotate(1.5deg);
+            transform: translate(0, 0.5px) rotate(1.5deg);
+  }
+  30%,
+  40%,
+  62%,
+  76%,
+  88% {
+    -webkit-transform: translate(0, -0.5px) rotate(2.5deg);
+            transform: translate(0, -0.5px) rotate(2.5deg);
+  }
+  32%,
+  34%,
+  66% {
+    -webkit-transform: translate(0, 1.5px) rotate(-0.5deg);
+            transform: translate(0, 1.5px) rotate(-0.5deg);
+  }
+  42% {
+    -webkit-transform: translate(0, 2.5px) rotate(-1.5deg);
+            transform: translate(0, 2.5px) rotate(-1.5deg);
+  }
+  44%,
+  70% {
+    -webkit-transform: translate(0, 1.5px) rotate(0.5deg);
+            transform: translate(0, 1.5px) rotate(0.5deg);
+  }
+  48%,
+  74%,
+  82% {
+    -webkit-transform: translate(0, -0.5px) rotate(0.5deg);
+            transform: translate(0, -0.5px) rotate(0.5deg);
+  }
+  52%,
+  56%,
+  60% {
+    -webkit-transform: translate(0, 2.5px) rotate(2.5deg);
+            transform: translate(0, 2.5px) rotate(2.5deg);
+  }
+  58% {
+    -webkit-transform: translate(0, 0.5px) rotate(2.5deg);
+            transform: translate(0, 0.5px) rotate(2.5deg);
+  }
+  84% {
+    -webkit-transform: translate(0, 1.5px) rotate(2.5deg);
+            transform: translate(0, 1.5px) rotate(2.5deg);
+  }
+  90% {
+    -webkit-transform: translate(0, 2.5px) rotate(-0.5deg);
+            transform: translate(0, 2.5px) rotate(-0.5deg);
+  }
+  92% {
+    -webkit-transform: translate(0, 0.5px) rotate(-0.5deg);
+            transform: translate(0, 0.5px) rotate(-0.5deg);
+  }
+  94% {
+    -webkit-transform: translate(0, 2.5px) rotate(0.5deg);
+            transform: translate(0, 2.5px) rotate(0.5deg);
+  }
+  0%,
+  100% {
+    -webkit-transform: translate(0, 0) rotate(0);
+            transform: translate(0, 0) rotate(0);
+  }
 }
 
-/* 可选：添加其他动画效果 */
-@keyframes wave {
-    0% {
-        transform: rotate(0deg);
-    }
-    25% {
-        transform: rotate(5deg);
-    }
-    75% {
-        transform: rotate(-5deg);
-    }
-    100% {
-        transform: rotate(0deg);
-    }
-}
-
-/* 波浪效果 */
-.my-face-wave {
-    display: inline-block;
-    animation: wave 2s infinite;
-    font-size: 1.2rem;
+@keyframes my-face {
+  2%,
+  24%,
+  80% {
+    -webkit-transform: translate(0, 1.5px) rotate(1.5deg);
+            transform: translate(0, 1.5px) rotate(1.5deg);
+  }
+  4%,
+  68%,
+  98% {
+    -webkit-transform: translate(0, -1.5px) rotate(-0.5deg);
+            transform: translate(0, -1.5px) rotate(-0.5deg);
+  }
+  38%,
+  6% {
+    -webkit-transform: translate(0, 1.5px) rotate(-1.5deg);
+            transform: translate(0, 1.5px) rotate(-1.5deg);
+  }
+  8%,
+  86% {
+    -webkit-transform: translate(0, -1.5px) rotate(-1.5deg);
+            transform: translate(0, -1.5px) rotate(-1.5deg);
+  }
+  10%,
+  72% {
+    -webkit-transform: translate(0, 2.5px) rotate(1.5deg);
+            transform: translate(0, 2.5px) rotate(1.5deg);
+  }
+  12%,
+  64%,
+  78%,
+  96% {
+    -webkit-transform: translate(0, -0.5px) rotate(1.5deg);
+            transform: translate(0, -0.5px) rotate(1.5deg);
+  }
+  14%,
+  54% {
+    -webkit-transform: translate(0, -1.5px) rotate(1.5deg);
+            transform: translate(0, -1.5px) rotate(1.5deg);
+  }
+  16% {
+    -webkit-transform: translate(0, -0.5px) rotate(-1.5deg);
+            transform: translate(0, -0.5px) rotate(-1.5deg);
+  }
+  18%,
+  22% {
+    -webkit-transform: translate(0, 0.5px) rotate(-1.5deg);
+            transform: translate(0, 0.5px) rotate(-1.5deg);
+  }
+  20%,
+  36%,
+  46% {
+    -webkit-transform: translate(0, -1.5px) rotate(2.5deg);
+            transform: translate(0, -1.5px) rotate(2.5deg);
+  }
+  26%,
+  50% {
+    -webkit-transform: translate(0, 0.5px) rotate(0.5deg);
+            transform: translate(0, 0.5px) rotate(0.5deg);
+  }
+  28% {
+    -webkit-transform: translate(0, 0.5px) rotate(1.5deg);
+            transform: translate(0, 0.5px) rotate(1.5deg);
+  }
+  30%,
+  40%,
+  62%,
+  76%,
+  88% {
+    -webkit-transform: translate(0, -0.5px) rotate(2.5deg);
+            transform: translate(0, -0.5px) rotate(2.5deg);
+  }
+  32%,
+  34%,
+  66% {
+    -webkit-transform: translate(0, 1.5px) rotate(-0.5deg);
+            transform: translate(0, 1.5px) rotate(-0.5deg);
+  }
+  42% {
+    -webkit-transform: translate(0, 2.5px) rotate(-1.5deg);
+            transform: translate(0, 2.5px) rotate(-1.5deg);
+  }
+  44%,
+  70% {
+    -webkit-transform: translate(0, 1.5px) rotate(0.5deg);
+            transform: translate(0, 1.5px) rotate(0.5deg);
+  }
+  48%,
+  74%,
+  82% {
+    -webkit-transform: translate(0, -0.5px) rotate(0.5deg);
+            transform: translate(0, -0.5px) rotate(0.5deg);
+  }
+  52%,
+  56%,
+  60% {
+    -webkit-transform: translate(0, 2.5px) rotate(2.5deg);
+            transform: translate(0, 2.5px) rotate(2.5deg);
+  }
+  58% {
+    -webkit-transform: translate(0, 0.5px) rotate(2.5deg);
+            transform: translate(0, 0.5px) rotate(2.5deg);
+  }
+  84% {
+    -webkit-transform: translate(0, 1.5px) rotate(2.5deg);
+            transform: translate(0, 1.5px) rotate(2.5deg);
+  }
+  90% {
+    -webkit-transform: translate(0, 2.5px) rotate(-0.5deg);
+            transform: translate(0, 2.5px) rotate(-0.5deg);
+  }
+  92% {
+    -webkit-transform: translate(0, 0.5px) rotate(-0.5deg);
+            transform: translate(0, 0.5px) rotate(-0.5deg);
+  }
+  94% {
+    -webkit-transform: translate(0, 2.5px) rotate(0.5deg);
+            transform: translate(0, 2.5px) rotate(0.5deg);
+  }
+  0%,
+  100% {
+    -webkit-transform: translate(0, 0) rotate(0);
+            transform: translate(0, 0) rotate(0);
+  }
 }

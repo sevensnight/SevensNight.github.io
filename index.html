@@ -222,6 +222,66 @@
     }
 </script>
 <!--鼠标悬停3D效果end-->
+
+<!--mouse effects show start-->
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    // 颜文字数组
+    var emojis = [
+        "( *・ω・)", "𖦹ࡇ𖦹 .ᐟ.ᐟ", "(⌒▽⌒)", "ᗜ ‸ ᗜ", "(=・ω・=)", "눈_눈",
+        "(ﾟДﾟ≡ﾟдﾟ)!?", "٩(๛ ˘ ³˘)۶❤ ¥ㄟ(´･ᴗ･`)ノ¥", "Σ( ￣□￣||)",
+        "ต^⑉⦁ - ⦁⑉^ต੭", "Σ(ﾟдﾟ;)", "(^・ω・^ )", "₍^˶ ╸𖥦 ╸˵^₎⟆",
+        "（￣へ￣）", "(´･ω･`) ", "(￣ε(#￣) Σ", "𝑪𝒊𝒂𝒍𝒍𝒐～(∠・ω< )⌒★",
+        "ヽ(`Д´)ﾉ", "ᕕ(◠ڼ◠)ᕗ", "(╯°口°)╯┴—┴", "(◍•ᴗ•◍)", "Σ(っ °Д °;)っ",
+        "ﾟдﾟ)ﾟдﾟ)ﾟдﾟ)ﾟдﾟ) (ﾟ∇ﾟ", "(｡>∀<｡)", "ε=ε=(ノ≧∇≦)ノ", "ꉂ(ˊᗜˋ*)",
+        "(๑`▽´๑)۶", "( • - •)", "( ゜- ゜)つロ", "(´◊ω◊｀)", "(✧∇✧)",
+        "_(•̀ω•́ 」∠)_", "ദ്ദി˶˃ ᵕ ˂ )✧"
+    ];
+    
+    // 存储可用颜文字的数组，初始化为完整数组的副本
+    var availableEmojis = [...emojis];
+    
+    $("body").click(function(e) {
+        // 如果可用颜文字为空，重新填充
+        if (availableEmojis.length === 0) {
+            availableEmojis = [...emojis];
+        }
+        
+        // 从可用颜文字中随机选择一个
+        var randomIndex = Math.floor(Math.random() * availableEmojis.length);
+        var selectedEmoji = availableEmojis[randomIndex];
+        
+        // 从可用数组中移除已选择的颜文字（关键：确保不重复）
+        availableEmojis.splice(randomIndex, 1);
+        
+        var $i = $("<span></span>").text(selectedEmoji);
+        var x = e.pageX,
+            y = e.pageY;
+            
+        $i.css({
+            "z-index": 99999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "rgb(" + (Math.random() * 136 + 120) + "," + (Math.random() * 136 + 120) + "," + ~~(Math.random() * 136 + 120) + ")"
+        });
+        
+        $("body").append($i);
+        
+        $i.animate({
+            "top": y - 180,
+            "opacity": 0
+        }, 1500, function() {
+            $i.remove();
+        });
+    });
+});
+</script>
+<!--mouse effects show end-->
+
+<!--网站输入效果开始-->
+<script src="https://cdn.jsdelivr.net/gh/huangwb8/bloghelper@latest/js/input-with-fire.js"></script>
 <link rel="stylesheet" href="/css/custom.css">
 
 
