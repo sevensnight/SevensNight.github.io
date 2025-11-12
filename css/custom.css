@@ -658,3 +658,8 @@ a, .btn-neutral {
             transform: translate(0, 0) rotate(0);
   }
 }
+
+/* 禁用背景气泡效果 */
+.shape-style-1 {
+    display: none !important;
+}
