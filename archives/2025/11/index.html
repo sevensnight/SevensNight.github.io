@@ -45,6 +45,13 @@
 
 
 	
+		
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+		
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+	
 
 	<script>
 		var argonConfig = {
@@ -438,11 +445,11 @@ jQuery(document).ready(function($) {
 		<span></span>
 		<span></span>
 	</div>
-
+	
 	
 	<div id="banner_container" class="banner-container container text-center">
 		
-			<div class="banner-title text-white" data-text="柒柒七夜‘s blog" data-interval=""><span class="banner-title-inner">&nbsp;</span>
+			<div class="banner-title text-white" data-text="柒柒七夜‘s blog" data-interval="""><span class="banner-title-inner">&nbsp;</span>
 		
 		<span class="banner-subtitle d-block">篱落浮暗香，竹榻摊书伴虫鸣.</span></div>
 	</div>
@@ -455,59 +462,116 @@ jQuery(document).ready(function($) {
 	
 </section>
 
+<!-- 滚动指示器 -->
+<div class="cover-scroll-down">
+    <i class="fa fa-angle-down" aria-hidden="true"></i>
+</div>
+
+<script>
+    document.querySelector('.cover-scroll-down').addEventListener('click', function() {
+        // 获取导航栏元素
+        const navbar = document.querySelector('.navbar');
+        // 计算滚动目标位置：Banner高度减去导航栏高度
+        const bannerHeight = document.querySelector('#banner').offsetHeight;
+        const navbarHeight = navbar ? navbar.offsetHeight : 0;
+        const targetPosition = bannerHeight - navbarHeight + 23;
+        
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+    });
+    
+	// 先为滚动指示器添加CSS过渡效果
+	const scrollIndicator = document.querySelector('.cover-scroll-down');
+	scrollIndicator.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+
+    // 监听页面滚动事件，控制滚动指示器的显示/隐藏
+    window.addEventListener('scroll', function() {
+        const scrollIndicator = document.querySelector('.cover-scroll-down');
+        const bannerHeight = document.querySelector('#banner').offsetHeight;
+        
+        // 当滚动距离超过banner高度的68%时隐藏指示器
+        if (window.scrollY > bannerHeight * 0.68) {
+        scrollIndicator.style.opacity = '0';
+        scrollIndicator.style.transform = 'translateY(-10px)';
+    } else {
+        scrollIndicator.style.opacity = '1';
+        scrollIndicator.style.transform = 'translateY(0)';
+    }
+    });
+</script>
+
+
+    <style>
+        #content:before {
+            content: '';
+            display: block;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            z-index: -2;
+            background: url(/assets/img/banner.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.9;
+            transition: opacity .5s ease;
+        }
+        html.darkmode #content:before{
+            filter: brightness(0.65);
+        }
+        
+            #content:after {
+                content: '';
+                display: block;
+                position: fixed;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                z-index: -2;
+                background: url(/assets/img/banner.jpg);
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                opacity: 0;
+                transition: opacity .5s ease;
+            }
+            html.darkmode #content:after {
+                opacity: 0.9;
+            }
+            html.darkmode #content:before {
+                opacity: 0;
+            }
+        
+        
+            #banner, #banner .shape {
+                background: transparent !important;
+            }
+        
+    </style>
+
+
 
 	<style>
-		#content:before {
+		#banner:after {
 			content: '';
-			display: block;
-			position: fixed;
+			width: 100vw;
+			position: absolute;
 			left: 0;
-			right: 0;
 			top: 0;
-			bottom: 0;
-			z-index: -2;
-			background: url(/assets/img/banner.jpg);
-			background-position: center;
-			background-size: cover;
-			background-repeat: no-repeat;
-			opacity: 0.9;
-			transition: opacity .5s ease;
+			height: 120px;
+			background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0) 100%);
+			display: block;
+			z-index: -1;
 		}
-		html.darkmode #content:before{
-			filter: brightness(0.65);
+		.banner-title {
+			text-shadow: 0 5px 15px rgba(0, 0, 0, .2);
 		}
-		
-			#content:after {
-				content: '';
-				display: block;
-				position: fixed;
-				left: 0;
-				right: 0;
-				top: 0;
-				bottom: 0;
-				z-index: -2;
-				background: url(/assets/img/banner.jpg);
-				background-position: center;
-				background-size: cover;
-				background-repeat: no-repeat;
-				opacity: 0;
-				transition: opacity .5s ease;
-			}
-			html.darkmode #content:after {
-				opacity: 0.9;
-			}
-			html.darkmode #content:before {
-				opacity: 0;
-			}
-		
-		
-			#banner, #banner .shape {
-				background: transparent !important;
-			}
-		
 	</style>
-
-
 
 
 <div id="float_action_buttons" class="float-action-buttons fabtns-unloaded">
@@ -641,7 +705,7 @@ jQuery(document).ready(function($) {
 						
 						<div class="tab-pane fade text-center active show" id="leftbar_tab_overview" role="tabpanel" aria-labelledby="leftbar_tab_overview_btn">
 							<img id="leftbar_overview_author_image" src="/assets/img/auther.png" class="img-fluid rounded-circle shadow-sm" style="width: 100px;" alt="avatar">
-							<h6 id="leftbar_overview_author_name">SevensNight</h6>
+							<h6 id="leftbar_overview_author_name">柒柒七夜</h6>
 							<nav class="site-state">
 								<div class="site-state-item site-state-posts">
 									<a href="/archives">
@@ -699,7 +763,7 @@ jQuery(document).ready(function($) {
 				</button>
 			</div>
 			<div class="modal-body">
-				<a class="badge badge-secondary tag" href="/categories/%E5%8D%9A%E5%AE%A2/" rel="tag">博客 <span class="tag-num">1</span></a>
+				<a class="badge badge-secondary tag" href="/categories/%E5%8D%9A%E5%AE%A2/" rel="tag">博客 <span class="tag-num">2</span></a>
 			</div>
 		</div>
 	</div>
@@ -714,7 +778,7 @@ jQuery(document).ready(function($) {
 				</button>
 			</div>
 			<div class="modal-body">
-				<a class="badge badge-secondary tag" href="/tags/test/" rel="tag">test <span class="tag-num">1</span></a>
+				<a class="badge badge-secondary tag" href="/tags/test/" rel="tag">test <span class="tag-num">2</span></a>
 			</div>
 		</div>
 	</div>
@@ -736,7 +800,7 @@ jQuery(document).ready(function($) {
 						
 						<div class="post-meta-detail post-meta-detail-time">
 							<i class="fa fa-clock-o" aria-hidden="true"></i>
-							<time title="发布于 2025-11-12 16:00:00 | 编辑于 2025-11-12 13:26:53">2025-11-12 16:00
+							<time title="发布于 2025-11-12 16:00:00 | 编辑于 2025-11-13 15:39:16">2025-11-12 16:00
 							</time>
 						</div>
 					
@@ -763,7 +827,7 @@ jQuery(document).ready(function($) {
 						
 						<div class="post-meta-detail post-meta-detail-words">
 							<i class="fa fa-file-word-o" aria-hidden="true"></i>
-							305 字
+							350 字
 						</div>
 					
 						
@@ -781,28 +845,30 @@ jQuery(document).ready(function($) {
 	<div class="post-content">
 		
 			
-				# 一级标题
-## 二级标题
-### 三级标题
-#### 四级标题
-##### 五级标题
-###### 六级标题
-**粗体文本**
-*斜体文本*
-***粗斜体文本***
+				一级标题# 一级标题
+二级标题## 二级标题
+三级标题### 三级标题
+四级标题#### 四级标题
+五级标题##### 五级标题
+六级标题###### 六级标题
+粗体文本**粗体文本**
+斜体文本*斜体文本*
+粗斜体文本***粗斜体文本***
 删除线
 下划线
-&#x3D;&#x3D;高亮文本&#x3D;&#x3D;
+高亮文本
 
 项目1
+项目2
+子项目2.1
+子项目2.2
 
-- 项目2
-&nbsp; - 子项目2.1
-&nbsp; - 子项目2.2
+
+
 
 第一步
-
-2. ...
+第二步
+子步骤2....
 			
 		
 	</div>
@@ -1269,6 +1335,26 @@ $.getScript("https://cdn.jsdelivr.net/gh/huangwb8/bloghelper@latest/js/onfocus.j
 		
 <script src="/argontheme.js"></script>
 
+		
+			<script>
+				window.MathJax = {
+					tex: {
+						inlineMath: [["$", "$"], ["\\\\(", "\\\\)"]],
+						displayMath: [['$$','$$']],
+						processEscapes: true,
+						packages: {'[+]': ['noerrors']}
+					},
+					options: {
+						skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+						ignoreHtmlClass: 'tex2jax_ignore',
+						processHtmlClass: 'tex2jax_process'
+					},
+					loader: {
+						load: ['[tex]/noerrors']
+					}
+				};
+			</script>
+			<script src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" id="MathJax-script" async></script>
 		
 		
 		
